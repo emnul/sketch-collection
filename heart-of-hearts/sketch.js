@@ -154,8 +154,9 @@ function draw() {
 	let abb = centralHeartAbbSlider.value(); // % abberation for each point
 	centerHeartPathPoints = centerHeartPathPoints.map((p) => {
 		// adds abberation to all points
-		let abbValue = random(1 - abb, 1 + abb);
-		return [p[0] * abbValue, p[1] * abbValue];
+		let abbValueX = random(1 - abb, 1 + abb);
+		let abbValueY = random(1 - abb, 1 + abb);
+		return [p[0] * abbValueX, p[1] * abbValueY];
 	});
 
 	if (bDoExportSvg) {
