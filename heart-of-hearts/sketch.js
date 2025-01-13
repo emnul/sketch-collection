@@ -8,20 +8,33 @@ let centralHeartSizeSlider;
 let centralHeartAbbSlider;
 let smallHeartSizeSlider;
 
+let numPointsCentralHeart;
+let numPointsSmallHeart;
+
 function setup() {
 	background(255);
 	noFill();
 
 	createCanvas(canvasWidth, canvasHeight); // 5.5"x8.5" at 96 dpi
 
+	centralHeartSizeSliderLabel = createElement("label", "Center Heart Size");
 	centralHeartSizeSlider = createSlider(30, 150, 97);
 	centralHeartSizeSlider.size(100);
+	centralHeartSizeSliderLabel.child(centralHeartSizeSlider);
 
+	centralHeartAbbSliderLabel = createElement(
+		"label",
+		"Center Heart Abberation",
+	);
 	centralHeartAbbSlider = createSlider(0, 0.5, 0, 0);
 	centralHeartAbbSlider.size(100);
+	centralHeartAbbSliderLabel.child(centralHeartAbbSlider);
 
+	smallHeartSizeSliderLabel = createElement("label", "Small Heart Size");
 	smallHeartSizeSlider = createSlider(1, 20, 20, 0);
+	smallHeartSizeSlider.id("smallHeartSize");
 	smallHeartSizeSlider.size(100);
+	smallHeartSizeSliderLabel.child(smallHeartSizeSlider);
 }
 
 // numSteps determines how many points in a path
@@ -50,7 +63,7 @@ function rangey(start, end, numSteps) {
 let topHalfCenterHeartRange = rangey(-2, 2, 80);
 let bottomHalfCenterHeartRange = rangey(2, -2, 80);
 
-// Length of topHalfRange + bottomHalfRange = total # of points in center heart = 40
+// Length of topHalfRange + bottomHalfRange = total # of points in small heart = 40
 let topHalfSmallHeartRange = rangey(-2, 2, 20);
 let bottomHalfSmallHeartRange = rangey(2, -2, 20);
 
