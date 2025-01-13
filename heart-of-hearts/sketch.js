@@ -8,8 +8,8 @@ let centralHeartSizeSlider;
 let centralHeartAbbSlider;
 let smallHeartSizeSlider;
 
-let numPointsCentralHeart;
-let numPointsSmallHeart;
+let numPointsCentralHeartInput;
+let numPointsSmallHeartInput;
 
 function setup() {
 	background(255);
@@ -73,12 +73,16 @@ function rangey(start, end, numSteps) {
 }
 
 // Length of topHalfRange + bottomHalfRange = total # of points in center heart = 160
-let topHalfCenterHeartRange = rangey(-2, 2, 80);
-let bottomHalfCenterHeartRange = rangey(2, -2, 80);
+let topHalfCenterHeartRange = rangey(-2, 2, numPointsCentralHeartInput.value());
+let bottomHalfCenterHeartRange = rangey(
+	2,
+	-2,
+	numPointsCentralHeartInput.value(),
+);
 
 // Length of topHalfRange + bottomHalfRange = total # of points in small heart = 40
-let topHalfSmallHeartRange = rangey(-2, 2, 20);
-let bottomHalfSmallHeartRange = rangey(2, -2, 20);
+let topHalfSmallHeartRange = rangey(-2, 2, numPointsSmallHeartInput.value());
+let bottomHalfSmallHeartRange = rangey(2, -2, numPointsSmallHeartInput.value());
 
 // Function that plots topHalf of a heart
 // size scales heart
