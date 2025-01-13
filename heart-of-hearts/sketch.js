@@ -24,14 +24,18 @@ function setup() {
 	smallHeartSizeSlider.size(100);
 }
 
-function rangey(start, end, step) {
+// numSteps determines how many points in a path
+function rangey(start, end, numSteps) {
 	const seq = [];
 
-	if (start > end && step < 0) {
-		for (let i = start; i >= end; i += step) {
+	let totalRange = Math.abs(start) + Math.abs(end);
+	let step = totalRange / numSteps;
+
+	if (start > end) {
+		for (let i = start; i >= end; i -= step) {
 			seq.push(i);
 		}
-	} else if (start < end && step > 0) {
+	} else if (start < end) {
 		for (let i = start; i <= end; i += step) {
 			seq.push(i);
 		}
@@ -43,12 +47,12 @@ function rangey(start, end, step) {
 }
 
 // Length of topHalfRange + bottomHalfRange = total # of points in center heart = 160
-let topHalfCenterHeartRange = rangey(-2, 2, 0.025);
-let bottomHalfCenterHeartRange = rangey(2, -2, -0.025);
+let topHalfCenterHeartRange = rangey(-2, 2, 80);
+let bottomHalfCenterHeartRange = rangey(2, -2, 80);
 
 // Length of topHalfRange + bottomHalfRange = total # of points in center heart = 40
-let topHalfSmallHeartRange = rangey(-2, 2, 0.2);
-let bottomHalfSmallHeartRange = rangey(2, -2, -0.2);
+let topHalfSmallHeartRange = rangey(-2, 2, 20);
+let bottomHalfSmallHeartRange = rangey(2, -2, 20);
 
 // Function that plots topHalf of a heart
 // size scales heart
