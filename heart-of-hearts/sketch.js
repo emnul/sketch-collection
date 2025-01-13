@@ -32,9 +32,22 @@ function setup() {
 
 	smallHeartSizeSliderLabel = createElement("label", "Small Heart Size");
 	smallHeartSizeSlider = createSlider(1, 20, 20, 0);
-	smallHeartSizeSlider.id("smallHeartSize");
 	smallHeartSizeSlider.size(100);
 	smallHeartSizeSliderLabel.child(smallHeartSizeSlider);
+
+	numPointsCentralHeartInputLabel = createElement(
+		"label",
+		"num points central heart",
+	);
+	numPointsCentralHeartInput = createInput(80, "number");
+	numPointsCentralHeartInputLabel.child(numPointsCentralHeartInput);
+
+	numPointsSmallHeartInputLabel = createElement(
+		"label",
+		"num points small heart",
+	);
+	numPointsSmallHeartInput = createInput(20, "number");
+	numPointsSmallHeartInputLabel.child(numPointsSmallHeartInput);
 }
 
 // numSteps determines how many points in a path
