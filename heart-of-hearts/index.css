@@ -22,6 +22,10 @@ body {
 	background: gray;
 }
 
+label {
+	display: block;
+}
+
 img,
 picture,
 video,
